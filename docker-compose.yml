@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  jenkins-master:
+    build:
+      context: ./jenkins-master
+    container_name: jenkins-master
+    ports:
+      - "8080:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    networks:
+      - jenkins-net
+
+  jenkins-agent:
+    build:
+      context: ./jenkins-agent
+    container_name: jenkins-agent
+    ports:
+      - "2222:22"  # SSH exposed here
+    networks:
+      - jenkins-net
+
+volumes:
+  jenkins_home:
+
+networks:
+  jenkins-net:
+
