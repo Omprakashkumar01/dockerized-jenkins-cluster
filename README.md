@@ -19,21 +19,21 @@ project-root/
 
 
 
-## ** Common Errors and Fixes**
+## Common Errors and Fixes
 
-### **❌ Authentication failed (private key rejected)**
+### ❌ Authentication failed (private key rejected)
 
 * Make sure the public key is correctly copied to the agent's `authorized_keys`.
 
 * Ensure correct permissions: `chmod 600 authorized_keys` and `chmod 700 .ssh`
 
-### **❌ Unsupported Java version**
+### ❌ Unsupported Java version
 
 * Update agent Dockerfile to install OpenJDK 17 (compatible with remoting.jar):
 
 apt-get install \-y openjdk-17-jdk
 
-### **❌ Cannot access `/var/jenkins_home` from host**
+### ❌ Cannot access `/var/jenkins_home` from host
 
 * Use `docker exec -it jenkins-master bash` instead.
 
